@@ -34,7 +34,7 @@ async def gender_classifier(name: str = Query(None)):
     if not gender or sample_size == 0:
         raise HTTPException(status_code=422, detail=f"Failed to determin gender for name '{name}'.")
 
-    is_confident = probability > 0.7 and sample_size >= 1000
+    is_confident = probability > 0.7 and sample_size >= 500
 
     timestamp = datetime.now(timezone.utc).isoformat()
 
