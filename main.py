@@ -21,7 +21,7 @@ async def gender_classifier(name: str = Query(None)):
     if not name:
         raise HTTPException(status_code=400, detail="A name parameter is required")
     try:
-        response = await client.get(f"{Gender_URL}?name={name}")
+        response = await client.get(Gender_URL, params={"name": name}, timeout=0.5)
         response.raise_for_status()
     except httpx.HTTPStatusError as error:
         raise HTTPException(status_code=error.response.status_code, detail=error.response.text)
