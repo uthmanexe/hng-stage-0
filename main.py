@@ -32,7 +32,7 @@ async def gender_classifier(name: str = Query(None)):
     sample_size = data.get("count", 0)
 
     if not gender or sample_size == 0:
-        raise HTTPException(status_code=422, detail=f"Failed to determin gender for name 'name'.")
+        raise HTTPException(status_code=422, detail=f"Failed to determin gender for name '{name}'.")
 
     is_confident = probability > 0.7 and sample_size >= 100
 
