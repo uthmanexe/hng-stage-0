@@ -52,6 +52,6 @@ async def gender_classifier(name: str = Query(None)):
             "probability": probability,
             "sample_size": sample_size,
             "is_confident": is_confident,
-            "processed_at": datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
+            "processed_at": datetime.now(timezone.utc).isoformat()
         }
     }
